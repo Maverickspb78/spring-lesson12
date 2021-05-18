@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: header"/>
+<body>
+<head th:replace="fragments/head :: navbar"/>
+
+<div class="col-10 mx-auto mt-3">
+        <table class="table">
+            <thead>
+            <h1>Basket</h1>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${basketList}">
+                <th scope="row" th:text="${product.id}">1</th>
+                <th scope="row" th:text="${product.title}">1</th>
+                <th scope="row" th:text="${product.description}">1</th>
+                <th scope="row" th:text="${product.price}">1</th>
+                <th>
+                    <a class="btn btn-danger" th:href="@{/basket/delete/{id}(id = ${product.id})}">
+                        <i class="far fa-trash-alt"></i></a>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script th:replace="fragments/footer :: scripts"/>
+</body>
+</html>
